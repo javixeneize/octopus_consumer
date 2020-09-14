@@ -18,8 +18,8 @@ ELEC_UNIT_PRICE = 0.1462
 GAS_STANDING = 0.1785
 GAS_UNIT_PRICE = 0.0255
 M3_TO_KWH = 11.19
-YESTERDAY = datetime.date.today() - datetime.timedelta(days=2)
-DAY_BEFORE_YESTERDAY = datetime.date.today() - datetime.timedelta(days=3)
+YESTERDAY = datetime.date.today() - datetime.timedelta(days=1)
+DAY_BEFORE_YESTERDAY = datetime.date.today() - datetime.timedelta(days=2)
 TODAY = datetime.date.today()
 
 es = Elasticsearch([{'host': 'YOUR_ELASTIC_HOST', 'port': 9200}])
