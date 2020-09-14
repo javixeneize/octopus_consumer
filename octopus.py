@@ -45,7 +45,6 @@ class Octopus_data():
             item['consumption'] = round(item.get('consumption') * GAS_UNIT_PRICE * M3_TO_KWH, 2)
             total += item.get('consumption')
             item['gas_consumption'] = item.pop('consumption')
-            # print (item)
         total = round(total + GAS_STANDING, 2)
         day_consumption['date'] = YESTERDAY
         day_consumption['gas_cost'] = total
@@ -54,13 +53,10 @@ class Octopus_data():
     def parse_electricity(self, electricity_data):
         total = 0
         day_consumption = {}
-        try:
-            for item in electricity_data:
-                item['consumption'] = round(item.get('consumption') * ELEC_UNIT_PRICE, 2)
-                total += item.get('consumption')
-                item['electricity_consumption'] = item.pop('consumption')
-        except IndexError:
-            electricity_data = []
+        for item in electricity_data:
+            item['consumption'] = round(item.get('consumption') * ELEC_UNIT_PRICE, 2)
+            total += item.get('consumption')
+            item['electricity_consumption'] = item.pop('consumption')
         total = round(total + ELEC_STANDING, 2)
         day_consumption['date'] = YESTERDAY
         day_consumption['electricity_cost'] = total
